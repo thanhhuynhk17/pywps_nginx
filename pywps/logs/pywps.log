@@ -1,0 +1,35 @@
+2023-07-29 04:24:28,750] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Service.py line=288 module=Service function=call Request: describeprocess
+2023-07-29 04:24:31,560] [ERROR] file=/usr/local/lib/python3.8/site-packages/pywps/exceptions.py line=48 module=exceptions function=__init__ Exception: code: 400, description: service, locator: service
+NoneType: None
+2023-07-29 04:24:48,097] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Service.py line=288 module=Service function=call Request: execute
+2023-07-29 04:24:48,929] [ERROR] file=/usr/local/lib/python3.8/site-packages/pywps/exceptions.py line=48 module=exceptions function=__init__ Exception: code: 400, description: Unknown process 'all', locator: Identifier
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/pywps/app/Service.py", line 88, in prepare_process_for_execution
+    process = self.processes[identifier]
+KeyError: 'all'
+2023-07-29 04:24:49,782] [ERROR] file=/usr/local/lib/python3.8/site-packages/pywps/exceptions.py line=48 module=exceptions function=__init__ Exception: code: 400, description: service, locator: service
+NoneType: None
+2023-07-29 04:24:54,029] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Service.py line=288 module=Service function=call Request: execute
+2023-07-29 04:24:57,204] [ERROR] file=/usr/local/lib/python3.8/site-packages/pywps/app/Service.py line=137 module=Service function=_parse_and_execute Missing parameter value: name
+2023-07-29 04:24:57,204] [ERROR] file=/usr/local/lib/python3.8/site-packages/pywps/exceptions.py line=48 module=exceptions function=__init__ Exception: code: 400, description: name, locator: name
+NoneType: None
+2023-07-29 04:24:57,426] [ERROR] file=/usr/local/lib/python3.8/site-packages/pywps/exceptions.py line=48 module=exceptions function=__init__ Exception: code: 400, description: service, locator: service
+NoneType: None
+2023-07-29 04:25:06,607] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Service.py line=288 module=Service function=call Request: execute
+2023-07-29 04:25:07,703] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Process.py line=327 module=Process function=clean Removing temporary working directory: /pywps/workdir/pywps_process_sb0h0vl3
+2023-07-29 04:25:07,778] [ERROR] file=/usr/local/lib/python3.8/site-packages/pywps/exceptions.py line=48 module=exceptions function=__init__ Exception: code: 400, description: service, locator: service
+NoneType: None
+2023-07-29 04:25:09,930] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Service.py line=288 module=Service function=call Request: execute
+2023-07-29 04:25:11,241] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Process.py line=327 module=Process function=clean Removing temporary working directory: /pywps/workdir/pywps_process_j6cjv7ra
+2023-07-29 04:25:11,317] [ERROR] file=/usr/local/lib/python3.8/site-packages/pywps/exceptions.py line=48 module=exceptions function=__init__ Exception: code: 400, description: service, locator: service
+NoneType: None
+2023-07-29 04:25:49,530] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Service.py line=288 module=Service function=call Request: execute
+2023-07-29 04:25:50,163] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Process.py line=327 module=Process function=clean Removing temporary working directory: /pywps/workdir/pywps_process_ae1cp5xt
+2023-07-29 04:25:50,237] [ERROR] file=/usr/local/lib/python3.8/site-packages/pywps/exceptions.py line=48 module=exceptions function=__init__ Exception: code: 400, description: service, locator: service
+NoneType: None
+2023-07-29 05:00:13,251] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Service.py line=288 module=Service function=call Request: execute
+2023-07-29 05:00:14,214] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Process.py line=327 module=Process function=clean Removing temporary working directory: /pywps/workdir/pywps_process_32tzjuek
+2023-07-29 05:00:14,313] [ERROR] file=/usr/local/lib/python3.8/site-packages/pywps/exceptions.py line=48 module=exceptions function=__init__ Exception: code: 400, description: service, locator: service
+NoneType: None
+2023-07-29 05:10:18,733] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Service.py line=288 module=Service function=call Request: execute
+2023-07-29 05:10:19,481] [INFO] file=/usr/local/lib/python3.8/site-packages/pywps/app/Process.py line=327 module=Process function=clean Removing temporary working directory: /pywps/workdir/pywps_process_5jygbp69
