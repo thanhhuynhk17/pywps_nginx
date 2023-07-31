@@ -1,2 +1,2 @@
-pywps/logs/*
+pywps/logs/pywps.log*
 **/__pycache__
