@@ -22,9 +22,8 @@ class SayHello(Process):
         )
 
     def _handler(self, request, response):
-        import socket
         response.outputs['response'].data = f'Hello \
-            {request.inputs["name"][0].data}, {socket.gethostname()}'
+            {request.inputs["name"][0].data}'
 
         response.outputs['response'].uom = UOM('unity')
         return response

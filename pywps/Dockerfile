@@ -6,9 +6,11 @@ ENV GU_WORKERS=${GU_WORKERS}
 
 WORKDIR /pywps
 
+COPY requirements.txt /pywps/
+RUN pip install -r requirements.txt
+
 COPY . .
 
-RUN pip install -r requirements.txt
 
 # RUN ln -s /pywps/wsgi/pywps.wsgi /pywps/wsgi/pywps_app.py
 
