@@ -1,2 +1,4 @@
-pywps/logs/pywps.log*
+pywps/logs/pywps*
+pywps/workdir/pywps*
 **/__pycache__
+venv39/

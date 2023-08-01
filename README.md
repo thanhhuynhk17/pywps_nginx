@@ -4,13 +4,29 @@
 
 2. Clone this repo, run cmd below to host WPS server inside Docker:
 
-    ```console
-    bash run_docker.sh
-    ```
+Install all libraries were listed in requirements.txt. It is advisable to run it in a python virtual environment.
+
+```console
+pip install -r pywps/requirements.txt
+```
+
+Build and run docker as a Production environment. Port 80.
+
+```console
+bash run_docker.sh
+```
+
+Flask application in  `./pywps/app.py` was used as a Development environment. Port 5000.
+
+```console
+python app.py -a
+```
 
 Nginx: proxy server port 80.
 
-Gunicorn: application server port 5000, code in `./pywps` folder.
+Gunicorn: application server port 5000. Notice: this port is in docker network.
+
+## Code in `./pywps/processes` folder.
 
 Example request:
 

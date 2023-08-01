@@ -1,2 +1,7 @@
 **/__pycache__/
 logs/
+
+# flask app
+./app.py
+./templates/
+./static/
