@@ -1,7 +1,10 @@
 **/__pycache__/
 logs/
 
-# flask app
+# notebook for testing
+./app.ipynb
+# flask app - dev env
 ./app.py
 ./templates/
 ./static/
+./requirements-dev.txt

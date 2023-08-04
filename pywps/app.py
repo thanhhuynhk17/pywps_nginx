@@ -28,13 +28,22 @@ import pywps
 from pywps import Service
 
 from processes.sayhello import SayHello
-# from processes.area import Area
+from processes.total_length import TotalLength
+from processes.overlay_operator import OverlayOperator
+from processes.centroid import Centroid
+from processes.simplify import Simplify
+from processes.convex_hull import ConvexHull
 
 app = flask.Flask(__name__)
+app.config["DEBUG"] = True
 
 processes = [
     SayHello(),
-    # Area(),
+    TotalLength(),
+    OverlayOperator(),
+    Centroid(),
+    Simplify(),
+    ConvexHull()
 ]
 
 # For the process list on the home page
@@ -54,8 +63,8 @@ def hello():
     server_url = pywps.configuration.get_config_value("server", "url")
     request_url = flask.request.url
     return flask.render_template('home.html', request_url=request_url,
-                                 server_url=server_url,
-                                 process_descriptor=process_descriptor)
+                                server_url=server_url,
+                                process_descriptor=process_descriptor)
 
 
 @app.route('/wps', methods=['GET', 'POST'])
@@ -122,8 +131,7 @@ if __name__ == "__main__":
 
         if (pid == 0):
             os.setsid()
-            app.run(threaded=True,host=bind_host, debug=True)
+            app.run(threaded=True,host=bind_host)
         else:
             os._exit(0)
-    else:
-        app.run(threaded=True,host=bind_host, debug=True)
+    else:        app.run(threaded=True,host=bind_host)

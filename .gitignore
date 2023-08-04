@@ -1,5 +1,7 @@
 pywps/logs/pywps*
 pywps/workdir/pywps*
+pywps/cache/
 **/__pycache__
 venv39/
-.vscode
+venv/
+**/.vscode

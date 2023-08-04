@@ -1,5 +1,3 @@
-Flask
-Jinja2
 gunicorn
 jsonschema
 lxml
@@ -13,3 +11,6 @@ psutil
 pywps
 fiona
 geopandas
+haversine
+utm
+pygml
