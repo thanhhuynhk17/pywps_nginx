@@ -7,7 +7,8 @@ services:
     ports:
       - "5000"
     volumes:
-      - /pywps/logs:/pywps/logs
+      - ./pywps/logs:/pywps/logs
+      - ./pywps/workdir:/pywps/workdir
     #   - ./pywps:/pywps
   nginx:
     image: nginx:1.15

@@ -6,9 +6,10 @@ class ConvexHull(Process):
     """
 
     def __init__(self):
-        inputs = [ComplexInput('layer', 'Layer', [Format('application/gml+xml')])]
+        inputs = [ComplexInput(
+            'layer', 'Layer', [Format('application/gml+xml')])]
         outputs = [ComplexOutput('convex_hull', 'Convex_hull',
-                            [Format('application/gml+xml')])]
+                                 [Format('application/gml+xml')])]
 
         super(ConvexHull, self).__init__(
             self._handler,
@@ -22,16 +23,13 @@ class ConvexHull(Process):
         )
 
     def _handler(self, request, response):
-        import geopandas as gpd
-        from pygml.v32 import encode_v32
-        from lxml import etree
+        from geopandas import read_file, GeoDataFrame
+        from common.helpers import gdf_to_gml
 
         # prepare data
-        gdf = gpd.read_file(
+        gdf = read_file(
             request.inputs['layer'][0].file, engine='fiona')
         convex_hull = gdf.unary_union.convex_hull
-
-        tree = encode_v32(convex_hull.__geo_interface__, 'convex_hull')
-        response.outputs['convex_hull'].data = etree.tostring(
-            tree, pretty_print=True).decode()
+        gdf_cvhull = GeoDataFrame(geometry=[convex_hull])
+        response.outputs['convex_hull'].data = gdf_to_gml(gdf_cvhull)
         return response

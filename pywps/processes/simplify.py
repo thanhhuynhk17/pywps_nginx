@@ -23,12 +23,11 @@ class Simplify(Process):
         )
 
     def _handler(self, request, response):
-        import geopandas as gpd
-        from pygml.v32 import encode_v32
-        from lxml import etree
+        from geopandas import read_file
+        from common.helpers import gdf_to_gml
 
         # prepare data
-        gdf = gpd.read_file(
+        gdf = read_file(
             request.inputs['layer'][0].file, engine='fiona')
         tolerance = float(request.inputs['tolerance'][0].data)
         
@@ -36,7 +35,5 @@ class Simplify(Process):
         if gdf_simplify.empty:
             return response
 
-        tree = encode_v32(gdf_simplify.__geo_interface__['features'][0]['geometry'], 'simplify')
-        response.outputs['simplify'].data = etree.tostring(
-            tree, pretty_print=True).decode()
+        response.outputs['simplify'].data = gdf_to_gml(gdf_simplify)
         return response

@@ -13,4 +13,5 @@ fiona
 geopandas
 haversine
 utm
-pygml
+gdal
+pygeos

@@ -6,14 +6,15 @@ class OverlayOperator(Process):
     def __init__(self):
         inputs = [ComplexInput('left_layer', 'Layer', [Format('application/gml+xml')]),
                 ComplexInput('right_layer', 'Layer', [Format('application/gml+xml')]),
-                LiteralInput('operator', 'Overlay operator', data_type='string')]
+                LiteralInput('operator', "Overlay operator",
+                                abstract='All available operators: intersection, union, identity, symmetric_difference, difference', data_type='string')]
         outputs = [ComplexOutput('overlay', 'Result layer', [Format('application/gml+xml')])]
 
         super(OverlayOperator, self).__init__(
             self._handler,
             identifier='overlay_operator',
             title='Process a overlay operator',
-            abstract="""Process returns the overlay result of two features from a submitted GML file""",
+            abstract="""Process returns the overlay result of two features from submitted GML files""",
             inputs=inputs,
             outputs=outputs,
             store_supported=True,
@@ -21,19 +22,22 @@ class OverlayOperator(Process):
         )
 
     def _handler(self, request, response):
-        import geopandas as gpd
-        from pygml.v32 import encode_v32
-        from lxml import etree
+        from geopandas import read_file
+        from common.helpers import gdf_to_gml
+        from pywps.app.exceptions import ProcessError
 
         # prepare data
-        gdf_left =  gpd.read_file(request.inputs['left_layer'][0].file, engine='fiona')
-        gdf_right =  gpd.read_file(request.inputs['right_layer'][0].file, engine='fiona')
-        operator = request.inputs['operator'][0].data
+        gdf_left =  read_file(request.inputs['left_layer'][0].file, engine='fiona')
+        gdf_right =  read_file(request.inputs['right_layer'][0].file, engine='fiona')
+        operator = str(request.inputs['operator'][0].data)
 
-        gdf_overlay = gdf_left.overlay(gdf_right, how=operator)
+        try:
+            gdf_overlay = gdf_left.overlay(gdf_right, how=operator)
+        except ValueError as e:
+            raise ProcessError(f"ValueError: {str(e)}")
         if gdf_overlay.empty:
             return response
         
-        tree = encode_v32(gdf_overlay.__geo_interface__['features'][0]['geometry'], 'overlay')
-        response.outputs['overlay'].data = etree.tostring(tree, pretty_print=True).decode()
+        gml_str = gdf_to_gml(gdf_overlay)
+        response.outputs['overlay'].data = gml_str
         return response

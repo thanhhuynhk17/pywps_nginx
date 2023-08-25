@@ -1,0 +1,26 @@
+<GMLFeatureClassList>
+  <GMLFeatureClass>
+    <Name>features</Name>
+    <ElementPath>features</ElementPath>
+    <GeometryName>geometry</GeometryName>
+    <GeometryElementPath>geometry</GeometryElementPath>
+    <DatasetSpecificInfo>
+      <FeatureCount>2</FeatureCount>
+      <ExtentXMin>106.62717</ExtentXMin>
+      <ExtentXMax>106.69239</ExtentXMax>
+      <ExtentYMin>10.76861</ExtentYMin>
+      <ExtentYMax>10.83682</ExtentYMax>
+    </DatasetSpecificInfo>
+    <PropertyDefn>
+      <Name>OBJECTID</Name>
+      <ElementPath>OBJECTID</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>NAME_2</Name>
+      <ElementPath>NAME_2</ElementPath>
+      <Type>String</Type>
+      <Width>12</Width>
+    </PropertyDefn>
+  </GMLFeatureClass>
+</GMLFeatureClassList>

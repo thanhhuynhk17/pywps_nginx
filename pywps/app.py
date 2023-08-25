@@ -27,24 +27,11 @@ import flask
 import pywps
 from pywps import Service
 
-from processes.sayhello import SayHello
-from processes.total_length import TotalLength
-from processes.overlay_operator import OverlayOperator
-from processes.centroid import Centroid
-from processes.simplify import Simplify
-from processes.convex_hull import ConvexHull
+from common.pywps_services import processes
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
-processes = [
-    SayHello(),
-    TotalLength(),
-    OverlayOperator(),
-    Centroid(),
-    Simplify(),
-    ConvexHull()
-]
 
 # For the process list on the home page
 
